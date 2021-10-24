@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TradingPub.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between">
+    <h2>Transactions</h2>
+    <p align="right">
+        <a asp-action="Create" class="btn btn-primary">Add New</a>
+    </p>
+</div>
+
+ <table class="table table-bordered table-striped" style="width:100%">
+     <thead>
+         <tr>
+             <td style="font-size: 17px; font-weight: bold" align="center">
+                 @Html.DisplayNameFor(model => model.Trader)
+             </td>
+             <td style="font-size: 17px; font-weight:bold" align="center">
+                 @Html.DisplayNameFor(model => model.Quotation)
+             </td>
+             <td style="font-size: 17px; font-weight:bold" align="center">
+                 Info
+             </td>
+         </tr>
+     </thead>
+     <tbody>
+         @foreach (var item in Model)
+         {
+             <tr>
+                 <td align="center">
+                     @Html.DisplayFor(modelItem => item.Trader.Name)
+                 </td>
+                 <td align="center">
+                     @Html.DisplayFor(modelItem => item.Quotation.Name)
+                 </td>
+                 <td align="center">
+                     <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |
+                     <a asp-action="Details" asp-route-id="@item.TransactionID">Details</a> |
+                     <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete</a>
+                 </td>
+             </tr>
+         }
+     </tbody>
+ </table>
