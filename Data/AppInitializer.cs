@@ -20,13 +20,13 @@ namespace TradingPub.Data
             // Quotations 
             var quotations = new Quotation[]
             {
-                new Quotation{Name="EUR/USD",Price=Decimal.Parse("1.16470")},
-                new Quotation{Name="USD/JPY",Price=Decimal.Parse("113.460")},
-                new Quotation{Name="GPY/USD",Price=Decimal.Parse("1.3751")},
-                new Quotation{Name="AUD/USD",Price=Decimal.Parse("0.74640")},
-                new Quotation{Name="USD/CAD",Price=Decimal.Parse("1.23590")},
-                new Quotation{Name="USD/CHF",Price=Decimal.Parse("0.91573")},
-                new Quotation{Name="NZD/USD",Price=Decimal.Parse("0.71530")}
+                new Quotation{Name="EUR/USD",Price=Decimal.Parse("1.16")},
+                new Quotation{Name="USD/JPY",Price=Decimal.Parse("113.46")},
+                new Quotation{Name="GPY/USD",Price=Decimal.Parse("1.37")},
+                new Quotation{Name="AUD/USD",Price=Decimal.Parse("0.74")},
+                new Quotation{Name="USD/CAD",Price=Decimal.Parse("1.23")},
+                new Quotation{Name="USD/CHF",Price=Decimal.Parse("0.91")},
+                new Quotation{Name="NZD/USD",Price=Decimal.Parse("0.71")}
             };
             foreach (Quotation s in quotations)
             {
