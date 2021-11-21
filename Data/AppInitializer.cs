@@ -17,7 +17,7 @@ namespace TradingPub.Data
                 return;
             }
 
-            // Quotations 
+            // Quotations Forex
             var quotations = new Quotation[]
             {
                 new Quotation{Name="EUR/USD",Price=Decimal.Parse("1.16")},
