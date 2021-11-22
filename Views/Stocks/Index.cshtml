@@ -1,15 +1,16 @@
-﻿@model IEnumerable<TradingPub.Models.Quotation>
+﻿@model IEnumerable<TradingPub.Models.Stocks>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Stocks";
 }
 
 <div class="d-flex justify-content-between">
-    <h2>Forex</h2>
+    <h2>Stocks</h2>
     <p align="right">
         <a asp-action="Create" class="btn btn-primary">Add New</a>
     </p>
 </div>
+
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -44,4 +45,4 @@
     </tbody>
 </table>
 
-<input type="button" class="btn btn-primary" value="Next" onclick="window.location= '@Url.Action( "Index", "Cryptos")'"/>
+<input type="button" class="btn btn-danger" value="Back" onclick="window.location= '@Url.Action( "Index", "Cryptos")'" />

@@ -34,6 +34,42 @@ namespace TradingPub.Data
             }
             context.SaveChanges();
 
+            // Quotations Crypto
+            var crypto = new Crypto[]
+            {
+                new Crypto{Name="BTC/USD",Price=Decimal.Parse("57434.67")},
+                new Crypto{Name="ETH/USD",Price=Decimal.Parse("4196.34")},
+                new Crypto{Name="XRP/USD",Price=Decimal.Parse("1.04")},
+                new Crypto{Name="LTC/USD",Price=Decimal.Parse("215.65")},
+                new Crypto{Name="BCH/USD",Price=Decimal.Parse("564.15")},
+                new Crypto{Name="IOT/USD",Price=Decimal.Parse("1.45")}
+            };
+            foreach (Crypto n in crypto)
+            {
+                context.Cryptos.Add(n);
+            }
+            context.SaveChanges();
+
+            // Quotations Crypto
+            var stocks = new Stocks[]
+            {
+                new Stocks{Name="Apple INC",Price=Decimal.Parse("160.55")},
+                new Stocks{Name="NIO INC",Price=Decimal.Parse("38.66")},
+                new Stocks{Name="Meta Platforms INC",Price=Decimal.Parse("345.30")},
+                new Stocks{Name="Twitter INC",Price=Decimal.Parse("48.40")},
+                new Stocks{Name="Microsoft CORP",Price=Decimal.Parse("343.11")},
+                new Stocks{Name="Tesla INC",Price=Decimal.Parse("1137.06")},
+                new Stocks{Name="Nvidia CORP",Price=Decimal.Parse("329.85")},
+                new Stocks{Name="Pfizer INC",Price=Decimal.Parse("50.80")},
+                new Stocks{Name="Ford Motors CO",Price=Decimal.Parse("19.39")},
+                new Stocks{Name="Boeing CO",Price=Decimal.Parse("214.13")}
+            };
+            foreach (Stocks k in stocks)
+            {
+                context.Stocks.Add(k);
+            }
+            context.SaveChanges();
+
             // Traders
             var traders = new Trader[]
             {

@@ -15,5 +15,7 @@ namespace TradingPub.Data
         public DbSet<Quotation> Quotations { get; set; }
         public DbSet<Trader> Traders { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Crypto> Cryptos { get; set; }
+        public DbSet<Stocks> Stocks { get; set; }
     }
 }
