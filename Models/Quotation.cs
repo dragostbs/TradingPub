@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace TradingPub.Models
 {
-    // Forex ex: Eur/Usd, Futures ex: Oil
+    // Forex Quotations
     public class Quotation
     {
         [DisplayName("Quotation ID")]
         public int ID { get; set; }
         [DisplayName("Quotation Name")]
         public string Name { get; set; }
+        [DisplayName("Trading Price")]
         public decimal Price { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
     }

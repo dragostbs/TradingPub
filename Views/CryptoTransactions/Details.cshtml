@@ -1,11 +1,11 @@
-﻿@model TradingPub.Models.Transaction
+﻿@model TradingPub.Models.CryptoTransaction
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <div>
-    <h4>Transactions Details</h4>
+    <h4>Crypto Transactions Details</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -21,20 +21,20 @@
             @Html.DisplayFor(model => model.Trader.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Quotation.ID)
+            @Html.DisplayNameFor(model => model.Crypto.ID)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Quotation.ID)
+            @Html.DisplayFor(model => model.Crypto.ID)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Quotation.Name)
+            @Html.DisplayNameFor(model => model.Crypto.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Quotation.Name)
+            @Html.DisplayFor(model => model.Crypto.Name)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.TransactionID">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.CryptoID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

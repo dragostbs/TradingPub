@@ -1,19 +1,18 @@
-﻿@model TradingPub.Models.Transaction
+﻿@model TradingPub.Models.StocksTransaction
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h4>Edit Transaction</h4>
+<h4>Add Stock Transaction</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="TraderID" class="control-label"></label>
                 <select asp-for="TraderID" class="form-control" asp-items="ViewBag.TraderID"></select>
-                <span asp-validation-for="TraderID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Trader.Name" class="control-label"></label>
@@ -21,17 +20,16 @@
                 <span asp-validation-for="Trader.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuotationID" class="control-label"></label>
-                <select asp-for="QuotationID" class="form-control" asp-items="ViewBag.QuotationID"></select>
-                <span asp-validation-for="QuotationID" class="text-danger"></span>
+                <label asp-for="StocksID" class="control-label"></label>
+                <select asp-for="StocksID" class="form-control" asp-items="ViewBag.StocksID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Quotation.Name" class="control-label"></label>
-                <input asp-for="Quotation.Name" class="form-control" />
-                <span asp-validation-for="Quotation.Name" class="text-danger"></span>
+                <label asp-for="Stocks.Name" class="control-label"></label>
+                <input asp-for="Stocks.Name" class="form-control" />
+                <span asp-validation-for="Stocks.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

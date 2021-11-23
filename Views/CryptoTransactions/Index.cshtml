@@ -1,11 +1,11 @@
-﻿@model IEnumerable<TradingPub.Models.Transaction>
+﻿@model IEnumerable<TradingPub.Models.CryptoTransaction>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <div class="d-flex justify-content-between">
-    <h2>Forex Transactions</h2>
+    <h2>Cryptocurrency Transactions</h2>
     <p align="right">
         <a asp-action="Create" class="btn btn-primary">Add New</a>
     </p>
@@ -18,7 +18,7 @@
                 @Html.DisplayNameFor(model => model.Trader)
             </td>
             <td style="font-size: 17px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.Quotation)
+                @Html.DisplayNameFor(model => model.Crypto)
             </td>
             <td style="font-size: 17px; font-weight:bold" align="center">
                 Info
@@ -33,16 +33,17 @@
                     @Html.DisplayFor(modelItem => item.Trader.Name)
                 </td>
                 <td align="center">
-                    @Html.DisplayFor(modelItem => item.Quotation.Name)
+                    @Html.DisplayFor(modelItem => item.Crypto.Name)
                 </td>
                 <td align="center">
-                    <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TransactionID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.CryptoID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CryptoID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CryptoID">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<input type="button" class="btn btn-primary" value="Next" onclick="window.location= '@Url.Action( "Index", "CryptoTransactions")'" />
+<input type="button" class="btn btn-danger" value="Back" onclick="window.location= '@Url.Action( "Index", "Transactions")'" />
+<input type="button" class="btn btn-primary" value="Next" onclick="window.location= '@Url.Action( "Index", "StocksTransactions")'" />

@@ -17,5 +17,6 @@ namespace TradingPub.Models
         public string Name { get; set; }
         public string Adress { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
+        public ICollection<Crypto> Cryptos { get; set; }
     }
 }

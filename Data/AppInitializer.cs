@@ -50,7 +50,7 @@ namespace TradingPub.Data
             }
             context.SaveChanges();
 
-            // Quotations Crypto
+            // Quotations Stocks
             var stocks = new Stocks[]
             {
                 new Stocks{Name="Apple INC",Price=Decimal.Parse("160.55")},
@@ -85,7 +85,7 @@ namespace TradingPub.Data
             }
             context.SaveChanges();
 
-            // Transactions
+            // Forex Transactions
             var transactions = new Transaction[]
             {
                 new Transaction { QuotationID = 1, TraderID = 00232 },
@@ -104,6 +104,50 @@ namespace TradingPub.Data
             foreach (Transaction e in transactions)
             {
                 context.Transactions.Add(e);
+            }
+            context.SaveChanges();
+
+            // Crypto Transactions
+            var cryptotransactions = new CryptoTransaction[]
+            {
+                new CryptoTransaction { CryptoID = 1, TraderID = 00232 },
+                new CryptoTransaction { CryptoID = 2, TraderID = 00426 },
+                new CryptoTransaction { CryptoID = 1, TraderID = 00537 },
+                new CryptoTransaction { CryptoID = 3, TraderID = 00956 },
+                new CryptoTransaction { CryptoID = 3, TraderID = 00426 },
+                new CryptoTransaction { CryptoID = 4, TraderID = 00232 },
+                new CryptoTransaction { CryptoID = 5, TraderID = 00774 },
+                new CryptoTransaction { CryptoID = 6, TraderID = 00956 },
+                new CryptoTransaction { CryptoID = 6, TraderID = 00774 },
+                new CryptoTransaction { CryptoID = 1, TraderID = 00232 },
+                new CryptoTransaction { CryptoID = 5, TraderID = 00426 },
+                new CryptoTransaction { CryptoID = 2, TraderID = 00537 }
+            };
+            foreach (CryptoTransaction x in cryptotransactions)
+            {
+                context.CryptoTransactions.Add(x);
+            }
+            context.SaveChanges();
+
+            // Stocks Transactions
+            var stockstransactions = new StocksTransaction[]
+            {
+                new StocksTransaction { StocksID = 1, TraderID = 00232 },
+                new StocksTransaction { StocksID = 2, TraderID = 00426 },
+                new StocksTransaction { StocksID = 10, TraderID = 00537 },
+                new StocksTransaction { StocksID = 8, TraderID = 00956 },
+                new StocksTransaction { StocksID = 3, TraderID = 00426 },
+                new StocksTransaction { StocksID = 4, TraderID = 00232 },
+                new StocksTransaction { StocksID = 5, TraderID = 00774 },
+                new StocksTransaction { StocksID = 6, TraderID = 00956 },
+                new StocksTransaction { StocksID = 7, TraderID = 00774 },
+                new StocksTransaction { StocksID = 9, TraderID = 00232 },
+                new StocksTransaction { StocksID = 5, TraderID = 00426 },
+                new StocksTransaction { StocksID = 2, TraderID = 00537 }
+            };
+            foreach (StocksTransaction y in stockstransactions)
+            {
+                context.StocksTransactions.Add(y);
             }
             context.SaveChanges();
         }
