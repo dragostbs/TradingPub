@@ -9,13 +9,14 @@ namespace TradingPub.Models
 {
     public class Transaction
     {
-        [DisplayName("Transaction ID")]
+        [DisplayName("Forex ID")]
         public int TransactionID { get; set; }
         [DisplayName("Trader ID")]
         public int TraderID { get; set; }
-        [DisplayName("Quotation ID")]
+        [DisplayName("Forex ID")]
         public int QuotationID { get; set; }
         public Trader Trader { get; set; }
+        [DisplayName("Forex")]
         public Quotation Quotation { get; set; }
     }
 }

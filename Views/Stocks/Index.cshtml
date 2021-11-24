@@ -11,16 +11,16 @@
     </p>
 </div>
 
-<table class="table table-bordered table-striped" style="width:100%">
-    <thead>
+<table class="table table-borderless shadow rounded" style="width:100%">
+    <thead class="text-light" style="background: #1E2830">
         <tr>
-            <td style="font-size: 17px; font-weight: bold" align="center">
+            <td style="font-size: 21px; font-weight: bold" align="center">
                 @Html.DisplayNameFor(model => model.Name)
             </td>
-            <td style="font-size: 17px; font-weight:bold" align="center">
+            <td style="font-size: 21px; font-weight:bold" align="center">
                 @Html.DisplayNameFor(model => model.Price)
             </td>
-            <td style="font-size: 17px; font-weight:bold" align="center">
+            <td style="font-size: 21px; font-weight:bold" align="center">
                 Info
             </td>
         </tr>
@@ -29,20 +29,20 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td align="center">
+                <td align="center" class="align-middle">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td align="center">
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td align="center">
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    <a class="btn btn-warning text-light btn-sm" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a class="btn btn-success btn-sm" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<input type="button" class="btn btn-danger" value="Back" onclick="window.location= '@Url.Action( "Index", "Cryptos")'" />
+<input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "Index", "Cryptos")'" />

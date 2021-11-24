@@ -10,9 +10,9 @@ namespace TradingPub.Models
     // Forex Quotations
     public class Quotation
     {
-        [DisplayName("Quotation ID")]
+        [DisplayName("Forex  ID")]
         public int ID { get; set; }
-        [DisplayName("Quotation Name")]
+        [DisplayName("Forex  Name")]
         public string Name { get; set; }
         [DisplayName("Trading Price")]
         public decimal Price { get; set; }
