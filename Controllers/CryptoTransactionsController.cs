@@ -47,11 +47,13 @@ namespace TradingPub.Controllers
         }
 
         // GET: CryptoTransactions/Create
+        [HttpGet]
         public IActionResult Create()
         {
+            CryptoTransaction cry = new CryptoTransaction();
             ViewData["CryptoID"] = new SelectList(_context.Cryptos, "ID", "ID");
             ViewData["TraderID"] = new SelectList(_context.Traders, "TraderID", "TraderID");
-            return View();
+            return PartialView("_CryptoTransactionModelPartial", cry);
         }
 
         // POST: CryptoTransactions/Create

@@ -44,9 +44,11 @@ namespace TradingPub.Controllers
         }
 
         // GET: Stocks/Create
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Stocks cks = new Stocks();
+            return PartialView("_StocksModelPartial", cks);
         }
 
         // POST: Stocks/Create

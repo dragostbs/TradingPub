@@ -46,7 +46,8 @@ namespace TradingPub.Controllers
         // GET: Traders/Create
         public IActionResult Create()
         {
-            return View();
+            Trader trd = new Trader();
+            return PartialView("_TraderModelPartial", trd);
         }
 
         // POST: Traders/Create

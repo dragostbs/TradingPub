@@ -44,9 +44,11 @@ namespace TradingPub.Controllers
         }
 
         // GET: Cryptos/Create
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Crypto pto = new Crypto();
+            return PartialView("_CryptoModelPartial", pto);
         }
 
         // POST: Cryptos/Create

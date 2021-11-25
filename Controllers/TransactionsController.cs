@@ -47,11 +47,13 @@ namespace TradingPub.Controllers
         }
 
         // GET: Transactions/Create
+        [HttpGet]
         public IActionResult Create()
         {
+            Transaction emp = new Transaction();
             ViewData["QuotationID"] = new SelectList(_context.Quotations, "ID", "ID");
             ViewData["TraderID"] = new SelectList(_context.Traders, "TraderID", "TraderID");
-            return View();
+            return PartialView("_TransactionModelPartial", emp);
         }
 
         // POST: Transactions/Create

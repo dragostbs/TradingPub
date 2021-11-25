@@ -44,9 +44,11 @@ namespace TradingPub.Controllers
         }
 
         // GET: Quotations/Create
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Quotation qto = new Quotation();
+            return PartialView("_QuotationModelPartial", qto);
         }
 
         // POST: Quotations/Create
