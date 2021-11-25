@@ -46,34 +46,6 @@ namespace TradingPub.Controllers
             return View(cryptoTransaction);
         }
 
-        // GET: CryptoTransactions/Create
-        [HttpGet]
-        public IActionResult Create()
-        {
-            CryptoTransaction cry = new CryptoTransaction();
-            ViewData["CryptoID"] = new SelectList(_context.Cryptos, "ID", "ID");
-            ViewData["TraderID"] = new SelectList(_context.Traders, "TraderID", "TraderID");
-            return PartialView("_CryptoTransactionModelPartial", cry);
-        }
-
-        // POST: CryptoTransactions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CryptoTransactionID,TraderID,CryptoID")] CryptoTransaction cryptoTransaction)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(cryptoTransaction);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["CryptoID"] = new SelectList(_context.Cryptos, "ID", "ID", cryptoTransaction.CryptoID);
-            ViewData["TraderID"] = new SelectList(_context.Traders, "TraderID", "TraderID", cryptoTransaction.TraderID);
-            return View(cryptoTransaction);
-        }
-
         // GET: CryptoTransactions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

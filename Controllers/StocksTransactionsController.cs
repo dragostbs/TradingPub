@@ -46,34 +46,6 @@ namespace TradingPub.Controllers
             return View(stocksTransaction);
         }
 
-        // GET: StocksTransactions/Create
-        [HttpGet]
-        public IActionResult Create()
-        {
-            StocksTransaction str = new StocksTransaction();
-            ViewData["StocksID"] = new SelectList(_context.Stocks, "ID", "ID");
-            ViewData["TraderID"] = new SelectList(_context.Traders, "TraderID", "TraderID");
-            return PartialView("_StocksTransactionModelPartial", str);
-        }
-
-        // POST: StocksTransactions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StocksTransactionID,TraderID,StocksID")] StocksTransaction stocksTransaction)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(stocksTransaction);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["StocksID"] = new SelectList(_context.Stocks, "ID", "ID", stocksTransaction.StocksID);
-            ViewData["TraderID"] = new SelectList(_context.Traders, "TraderID", "TraderID", stocksTransaction.TraderID);
-            return View(stocksTransaction);
-        }
-
         // GET: StocksTransactions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

@@ -4,14 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-
-<div id="PlaceHolderHere"></div>
 <div class="d-flex justify-content-between">
     <h2>Stocks Transactions</h2>
-    <p align="right">
-        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addTransaction" data-url="@Url.Action("Create")">Add New</button>
-    </p>
 </div>
 
 <table class="table table-borderless shadow rounded" style="width:100%">
@@ -23,24 +17,25 @@
             <td style="font-size: 21px; font-weight:bold" align="center">
                 @Html.DisplayNameFor(model => model.Stocks)
             </td>
-            <td i class="bi bi-activity" style="font-size: 21px; font-weight:bold" align="center"></td>
+            <td style="font-size: 21px; font-weight:bold" align="center">
+                @Html.DisplayNameFor(model => model.Stocks.Price)
+            </td>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td align="center" class="align-middle">
-                    @Html.DisplayFor(modelItem => item.Trader.Name)
-                </td>
-                <td align="center">
-                    @Html.DisplayFor(modelItem => item.Stocks.Name)
-                </td>
-                <td align="center">
-                    <a i class="btn btn-success btn-sm bi bi-info-lg" asp-action="Details" asp-route-id="@item.StocksID"></a> |
-                    <a i class="btn btn-danger btn-sm bi bi-x-lg" asp-action="Delete" asp-route-id="@item.StocksID"></a>
-                </td>
-            </tr>
+        <tr>
+            <td align="center" class="align-middle">
+                @Html.DisplayFor(modelItem => item.Trader.Name)
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.Stocks.Name)
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.Stocks.Price)
+            </td>
+        </tr>
         }
     </tbody>
 </table>
