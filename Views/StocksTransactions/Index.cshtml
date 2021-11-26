@@ -20,6 +20,12 @@
             <td style="font-size: 21px; font-weight:bold" align="center">
                 @Html.DisplayNameFor(model => model.Stocks.Price)
             </td>
+            <td style="font-size: 21px; font-weight:bold" align="center">
+                @Html.DisplayNameFor(model => model.StockResult)
+            </td>
+            <td style="font-size: 21px; font-weight:bold" align="center">
+                @Html.DisplayNameFor(model => model.StockAmount)
+            </td>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +41,30 @@
             <td align="center">
                 @Html.DisplayFor(modelItem => item.Stocks.Price)
             </td>
+            @if (item.StockResult == "Loss")
+            {
+                <td align="center" style="color: red">
+                    @Html.DisplayFor(modelItem => item.StockResult)
+                </td>
+            }
+            else if (item.StockResult == "Win")
+            {
+                <td align="center" style="color: green">
+                    @Html.DisplayFor(modelItem => item.StockResult)
+                </td>
+            }
+            @if (item.StockAmount <= 0)
+            {
+                <td align="center" style="color: red">
+                    @Html.DisplayFor(modelItem => item.StockAmount)
+                </td>
+            }
+            else if (item.StockAmount >= 0)
+            {
+                <td align="center" style="color: green">
+                    @Html.DisplayFor(modelItem => item.StockAmount)
+                </td>
+            }
         </tr>
         }
     </tbody>

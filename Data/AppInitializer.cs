@@ -88,18 +88,18 @@ namespace TradingPub.Data
             // Forex Transactions
             var transactions = new Transaction[]
             {
-                new Transaction { QuotationID = 1, TraderID = 00232 },
-                new Transaction { QuotationID = 2, TraderID = 00426 },
-                new Transaction { QuotationID = 1, TraderID = 00537 },
-                new Transaction { QuotationID = 3, TraderID = 00956 },
-                new Transaction { QuotationID = 3, TraderID = 00426 },
-                new Transaction { QuotationID = 4, TraderID = 00232 },
-                new Transaction { QuotationID = 5, TraderID = 00774 },
-                new Transaction { QuotationID = 6, TraderID = 00956 },
-                new Transaction { QuotationID = 6, TraderID = 00774 },
-                new Transaction { QuotationID = 7, TraderID = 00232 },
-                new Transaction { QuotationID = 5, TraderID = 00426 },
-                new Transaction { QuotationID = 7, TraderID = 00537 }
+                new Transaction { QuotationID = 1, TraderID = 00232, ForexResult = "Win", ForexAmount = 120 },
+                new Transaction { QuotationID = 2, TraderID = 00426, ForexResult = "Loss", ForexAmount = -80 },
+                new Transaction { QuotationID = 1, TraderID = 00537, ForexResult = "Win", ForexAmount = 94 },
+                new Transaction { QuotationID = 3, TraderID = 00956, ForexResult = "Win", ForexAmount = 88 },
+                new Transaction { QuotationID = 3, TraderID = 00426, ForexResult = "Loss", ForexAmount = -60 },
+                new Transaction { QuotationID = 4, TraderID = 00232, ForexResult = "Loss", ForexAmount = -110 },
+                new Transaction { QuotationID = 5, TraderID = 00774, ForexResult = "Win", ForexAmount = 150 },
+                new Transaction { QuotationID = 6, TraderID = 00956, ForexResult = "Win", ForexAmount = 90 },
+                new Transaction { QuotationID = 6, TraderID = 00774, ForexResult = "Win", ForexAmount = 75 },
+                new Transaction { QuotationID = 7, TraderID = 00232, ForexResult = "Loss", ForexAmount = -100 },
+                new Transaction { QuotationID = 5, TraderID = 00426, ForexResult = "Win", ForexAmount = 65 },
+                new Transaction { QuotationID = 7, TraderID = 00537, ForexResult = "Win", ForexAmount = 50 }
             };
             foreach (Transaction e in transactions)
             {
@@ -110,18 +110,18 @@ namespace TradingPub.Data
             // Crypto Transactions
             var cryptotransactions = new CryptoTransaction[]
             {
-                new CryptoTransaction { CryptoID = 1, TraderID = 00232 },
-                new CryptoTransaction { CryptoID = 2, TraderID = 00426 },
-                new CryptoTransaction { CryptoID = 1, TraderID = 00537 },
-                new CryptoTransaction { CryptoID = 3, TraderID = 00956 },
-                new CryptoTransaction { CryptoID = 3, TraderID = 00426 },
-                new CryptoTransaction { CryptoID = 4, TraderID = 00232 },
-                new CryptoTransaction { CryptoID = 5, TraderID = 00774 },
-                new CryptoTransaction { CryptoID = 6, TraderID = 00956 },
-                new CryptoTransaction { CryptoID = 6, TraderID = 00774 },
-                new CryptoTransaction { CryptoID = 1, TraderID = 00232 },
-                new CryptoTransaction { CryptoID = 5, TraderID = 00426 },
-                new CryptoTransaction { CryptoID = 2, TraderID = 00537 }
+                new CryptoTransaction { CryptoID = 1, TraderID = 00232, CryptoResult = "Win", CryptoAmount = 240 },
+                new CryptoTransaction { CryptoID = 2, TraderID = 00426, CryptoResult = "Loss", CryptoAmount = -300 },
+                new CryptoTransaction { CryptoID = 1, TraderID = 00537, CryptoResult = "Loss", CryptoAmount = -150 },
+                new CryptoTransaction { CryptoID = 3, TraderID = 00956, CryptoResult = "Loss", CryptoAmount = -235 },
+                new CryptoTransaction { CryptoID = 3, TraderID = 00426, CryptoResult = "Win", CryptoAmount = 410 },
+                new CryptoTransaction { CryptoID = 4, TraderID = 00232, CryptoResult = "Win", CryptoAmount = 320 },
+                new CryptoTransaction { CryptoID = 5, TraderID = 00774, CryptoResult = "Loss", CryptoAmount = -290 },
+                new CryptoTransaction { CryptoID = 6, TraderID = 00956, CryptoResult = "Win", CryptoAmount = 390 },
+                new CryptoTransaction { CryptoID = 6, TraderID = 00774, CryptoResult = "Win", CryptoAmount = 275 },
+                new CryptoTransaction { CryptoID = 1, TraderID = 00232, CryptoResult = "Win", CryptoAmount = 190 },
+                new CryptoTransaction { CryptoID = 5, TraderID = 00426, CryptoResult = "Loss", CryptoAmount = -150 },
+                new CryptoTransaction { CryptoID = 2, TraderID = 00537, CryptoResult = "Win", CryptoAmount = 320 }
             };
             foreach (CryptoTransaction x in cryptotransactions)
             {
@@ -132,18 +132,18 @@ namespace TradingPub.Data
             // Stocks Transactions
             var stockstransactions = new StocksTransaction[]
             {
-                new StocksTransaction { StocksID = 1, TraderID = 00232 },
-                new StocksTransaction { StocksID = 2, TraderID = 00426 },
-                new StocksTransaction { StocksID = 10, TraderID = 00537 },
-                new StocksTransaction { StocksID = 8, TraderID = 00956 },
-                new StocksTransaction { StocksID = 3, TraderID = 00426 },
-                new StocksTransaction { StocksID = 4, TraderID = 00232 },
-                new StocksTransaction { StocksID = 5, TraderID = 00774 },
-                new StocksTransaction { StocksID = 6, TraderID = 00956 },
-                new StocksTransaction { StocksID = 7, TraderID = 00774 },
-                new StocksTransaction { StocksID = 9, TraderID = 00232 },
-                new StocksTransaction { StocksID = 5, TraderID = 00426 },
-                new StocksTransaction { StocksID = 2, TraderID = 00537 }
+                new StocksTransaction { StocksID = 1, TraderID = 00232, StockResult = "Loss", StockAmount = -100 },
+                new StocksTransaction { StocksID = 2, TraderID = 00426, StockResult = "Loss", StockAmount = -255 },
+                new StocksTransaction { StocksID = 10, TraderID = 00537, StockResult = "Win", StockAmount = 450 },
+                new StocksTransaction { StocksID = 8, TraderID = 00956, StockResult = "Loss", StockAmount = -300 },
+                new StocksTransaction { StocksID = 3, TraderID = 00426, StockResult = "Win", StockAmount = 300 },
+                new StocksTransaction { StocksID = 4, TraderID = 00232, StockResult = "Win", StockAmount = 280 },
+                new StocksTransaction { StocksID = 5, TraderID = 00774, StockResult = "Loss", StockAmount = -160 },
+                new StocksTransaction { StocksID = 6, TraderID = 00956, StockResult = "Win", StockAmount = 220 },
+                new StocksTransaction { StocksID = 7, TraderID = 00774, StockResult = "Loss", StockAmount = -270 },
+                new StocksTransaction { StocksID = 9, TraderID = 00232, StockResult = "Win", StockAmount = 440 },
+                new StocksTransaction { StocksID = 5, TraderID = 00426, StockResult = "Win", StockAmount = 355 },
+                new StocksTransaction { StocksID = 2, TraderID = 00537, StockResult = "Win", StockAmount = 400 }
             };
             foreach (StocksTransaction y in stockstransactions)
             {

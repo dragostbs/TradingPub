@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace TradingPub.Data
 {
@@ -11,6 +12,9 @@ namespace TradingPub.Data
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+            System.Globalization.CultureInfo modCulture = new System.Globalization.CultureInfo("en-US");
+            modCulture.NumberFormat.CurrencyNegativePattern = 1;
+            Thread.CurrentThread.CurrentCulture = modCulture;
         }
         public DbSet<Quotation> Quotations { get; set; }
         public DbSet<Trader> Traders { get; set; }

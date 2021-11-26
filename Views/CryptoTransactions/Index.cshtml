@@ -20,6 +20,12 @@
             <td style="font-size: 21px; font-weight:bold" align="center">
                 @Html.DisplayNameFor(model => model.Crypto.Price)
             </td>
+            <td style="font-size: 21px; font-weight:bold" align="center">
+                @Html.DisplayNameFor(model => model.CryptoResult)
+            </td>
+            <td style="font-size: 21px; font-weight:bold" align="center">
+                @Html.DisplayNameFor(model => model.CryptoAmount)
+            </td>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +41,30 @@
             <td align="center">
                 @Html.DisplayFor(modelItem => item.Crypto.Price)
             </td>
+            @if (item.CryptoResult == "Loss")
+            {
+                <td align="center" style="color: red">
+                    @Html.DisplayFor(modelItem => item.CryptoResult)
+                </td>
+            }
+            else if (item.CryptoResult == "Win")
+            {
+                <td align="center" style="color: green">
+                    @Html.DisplayFor(modelItem => item.CryptoResult)
+                </td>
+            }
+            @if (item.CryptoAmount <= 0)
+            {
+                <td align="center" style="color: red">
+                    @Html.DisplayFor(modelItem => item.CryptoAmount)
+                </td>
+            }
+            else if (item.CryptoAmount >= 0)
+            {
+                <td align="center" style="color: green">
+                    @Html.DisplayFor(modelItem => item.CryptoAmount)
+                </td>
+            }
         </tr>
         }
     </tbody>
@@ -42,3 +72,4 @@
 
 <input type="button" class="btn btn-danger" value="Back" onclick="window.location= '@Url.Action( "Index", "Transactions")'" />
 <input type="button" class="btn btn-primary" value="Next" onclick="window.location= '@Url.Action( "Index", "StocksTransactions")'" />
+
