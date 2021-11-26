@@ -1,36 +1,41 @@
 ﻿@model TradingPub.Models.Trader
 
-@{
-    ViewData["Title"] = "Delete";
-}
+<div class="text-center">
+    <h4>Delete this Trader?</h4>
+</div>
 
-<h3>Are you sure you want to delete this Trader?</h3>
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TraderID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TraderID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Adress)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Adress)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="TraderID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a class="btn btn-info" asp-action="Index">Back</a>
-    </form>
+<div class="container">
+    <div class="table table-borderless shadow rounded text-center p-2 text-light" style="background: #1E2830">
+        <style type="text/css">
+            .table {
+                margin: 0 auto;
+                width: 40%;
+            }
+        </style>
+        <dl class="table text-center p-2 text-light">
+            <dt class="p-2" style="font-size: 21px">
+                @Html.DisplayNameFor(model => model.TraderID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TraderID)
+            </dd>
+            <dt class="p-2" style="font-size: 21px">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="p-2" style="font-size: 21px">
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
+        </dl>
+        <form asp-action="Delete" class="p-4">
+            <input type="hidden" asp-for="TraderID" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a class="btn btn-primary" asp-action="Index">Back</a>
+        </form>
+    </div>
 </div>

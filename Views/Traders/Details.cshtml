@@ -4,31 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<div>
-    <h4>Info Trader</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TraderID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TraderID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Adress)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Adress)
-        </dd>
-    </dl>
+<div class="text-center">
+    <h4>Trader Details</h4>
 </div>
-<div>
-    <a class="btn btn-warning text-light" asp-action="Edit" asp-route-id="@Model.TraderID">Edit</a> |
-    <a class="btn btn-info" asp-action="Index">Back</a>
+
+<div class="container">
+    <div class="table table-borderless shadow rounded text-center p-2 text-light" style="background: #1E2830">
+        <style type="text/css">
+            .table {
+                margin: 0 auto;
+                width: 40%;
+            }
+        </style>
+        <dl class="table text-center p-2 text-light">
+            <dt class="p-2" style="font-size: 21px">
+                @Html.DisplayNameFor(model => model.TraderID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TraderID)
+            </dd>
+            <dt class="p-2" style="font-size: 21px">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="p-2" style="font-size: 21px">
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
+        </dl>
+        <div class="form-group p-2">
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.TraderID">Edit</a> |
+            <a class="btn btn-danger" asp-action="Index">Back</a>
+        </div>
+    </div>
 </div>

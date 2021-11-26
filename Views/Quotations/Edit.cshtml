@@ -4,25 +4,33 @@
     ViewData["Title"] = "Edit";
 }
 
-<h4>Edit Forex Quotation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="text-center">
+    <h4>Edit Forex Quotation</h4>
+</div>
+
+<div class="container">
+    <div class="table table-borderless shadow rounded text-center p-2 text-light" style="background: #1E2830"> 
+         <style type="text/css">
+            .table {
+                margin: 0 auto;
+                width: 40%;
+                    }
+         </style>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
+            <div class="form-group p-2" style="font-size: 21px">
+                <label asp-for="ID" class="control-label p-1"></label>
                 <input asp-for="ID" class="form-control" />
                 <span asp-validation-for="ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                </div>
+            <div class="form-group p-2" style="font-size: 21px">
+                <label asp-for="Name" class="control-label p-1"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" /> |
-                <a class="btn btn-info" asp-action="Index">Back</a>
+                <a class="btn btn-danger" asp-action="Index">Back</a>
             </div>
         </form>
     </div>
