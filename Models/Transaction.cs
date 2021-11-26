@@ -22,7 +22,6 @@ namespace TradingPub.Models
         [DisplayName("Forex ID")]
         public int QuotationID { get; set; }
         public Trader Trader { get; set; }
-        [DisplayName("Forex")]
         public Quotation Quotation { get; set; }
 
     }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TradingPub.Data;
 using Microsoft.EntityFrameworkCore;
+using TradingPub.Hubs;
 
 namespace TradingPub
 {
@@ -27,6 +28,7 @@ namespace TradingPub
         {
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +56,7 @@ namespace TradingPub
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapHub<ChatHub>("/chathub");
             });
         }
     }

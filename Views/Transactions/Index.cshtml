@@ -4,8 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
+
 <div class="d-flex justify-content-between">
-    <h2>Forex Transactions</h2>
+    <h2>Forex Transaction</h2>
 </div>
 
 <table class="table table-borderless shadow rounded" style="width:100%">
@@ -31,41 +32,41 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td align="center" class="align-middle">
-                @Html.DisplayFor(modelItem => item.Trader.Name)
-            </td>
-            <td align="center">
-                @Html.DisplayFor(modelItem => item.Quotation.Name)
-            </td>
-            <td align="center">
-                @Html.DisplayFor(modelItem => item.Quotation.Price)
-            </td>
-            @if (item.ForexResult == "Loss")
-            {
-                <td align="center" style="color: red">
-                    @Html.DisplayFor(modelItem => item.ForexResult)
+            <tr>
+                <td align="center" class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Trader.Name)
                 </td>
-            }
-            else if (item.ForexResult == "Win")
-            {
-                <td align="center" style="color: green">
-                    @Html.DisplayFor(modelItem => item.ForexResult)
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.Quotation.Name)
                 </td>
-            }
-            @if (item.ForexAmount <= 0)
-            {
-                <td align="center" style="color: red">
-                    @Html.DisplayFor(modelItem => item.ForexAmount)
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.Quotation.Price)
                 </td>
-            }
-            else if (item.ForexAmount >= 0)
-            {
-                <td align="center" style="color: green">
-                    @Html.DisplayFor(modelItem => item.ForexAmount)
-                </td>
-            }
-        </tr>
+                @if (item.ForexResult == "Loss")
+                {
+                    <td align="center" style="color: red">
+                        @Html.DisplayFor(modelItem => item.ForexResult)
+                    </td>
+                }
+                else if (item.ForexResult == "Win")
+                {
+                    <td align="center" style="color: green">
+                        @Html.DisplayFor(modelItem => item.ForexResult)
+                    </td>
+                }
+                @if (item.ForexAmount <= 0)
+                {
+                    <td align="center" style="color: red">
+                        @Html.DisplayFor(modelItem => item.ForexAmount)
+                    </td>
+                }
+                else if (item.ForexAmount >= 0)
+                {
+                    <td align="center" style="color: green">
+                        @Html.DisplayFor(modelItem => item.ForexAmount)
+                    </td>
+                }
+            </tr>
         }
     </tbody>
 </table>
