@@ -20,15 +20,20 @@ namespace TradingPub.Controllers
         }
 
         // GET: StocksTransactions
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["StockSortParm"] = String.IsNullOrEmpty(sortOrder) ? "stock_desc" : "";
             ViewData["TraderSortParm"] = sortOrder == "Trader" ? "trader_desc" : "Trader";
             ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
             ViewData["ResultSortParm"] = sortOrder == "Result" ? "result_desc" : "Result";
             ViewData["AmountSortParm"] = sortOrder == "Amount" ? "amount_desc" : "Amount";
+            ViewData["CurrentFilter"] = searchString;
             var transactions = from b in _context.StocksTransactions.Include(b => b.Stocks).Include(b => b.Trader)
                                select b;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                transactions = transactions.Where(s => s.Trader.Name.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "stock_desc":

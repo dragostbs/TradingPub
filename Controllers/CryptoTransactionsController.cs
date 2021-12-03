@@ -20,15 +20,20 @@ namespace TradingPub.Controllers
         }
 
         // GET: CryptoTransactions
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["CryptoSortParm"] = String.IsNullOrEmpty(sortOrder) ? "crypto_desc" : "";
             ViewData["TraderSortParm"] = sortOrder == "Trader" ? "trader_desc" : "Trader";
             ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
             ViewData["ResultSortParm"] = sortOrder == "Result" ? "result_desc" : "Result";
             ViewData["AmountSortParm"] = sortOrder == "Amount" ? "amount_desc" : "Amount";
+            ViewData["CurrentFilter"] = searchString;
             var transactions = from b in _context.CryptoTransactions.Include(b => b.Crypto).Include(b => b.Trader)
                                select b;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                transactions = transactions.Where(s => s.Trader.Name.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "crypto_desc":
