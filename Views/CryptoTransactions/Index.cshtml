@@ -12,19 +12,19 @@
     <thead class="text-light" style="background: #1E2830">
         <tr>
             <td style="font-size: 21px; font-weight: bold" align="center">
-                @Html.DisplayNameFor(model => model.Trader)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["TraderSortParm"]">@Html.DisplayNameFor(model => model.Trader)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.Crypto)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["CryptoSortParm"]">@Html.DisplayNameFor(model => model.Crypto)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.Crypto.Price)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]">@Html.DisplayNameFor(model => model.Crypto.Price)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.CryptoResult)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["ResultSortParm"]">@Html.DisplayNameFor(model => model.CryptoResult)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.CryptoAmount)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["AmountSortParm"]">@Html.DisplayNameFor(model => model.CryptoAmount)</a>
             </td>
         </tr>
     </thead>

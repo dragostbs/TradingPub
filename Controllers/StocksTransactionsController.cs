@@ -20,10 +20,49 @@ namespace TradingPub.Controllers
         }
 
         // GET: StocksTransactions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            var applicationContext = _context.StocksTransactions.Include(s => s.Stocks).Include(s => s.Trader);
-            return View(await applicationContext.ToListAsync());
+            ViewData["StockSortParm"] = String.IsNullOrEmpty(sortOrder) ? "stock_desc" : "";
+            ViewData["TraderSortParm"] = sortOrder == "Trader" ? "trader_desc" : "Trader";
+            ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
+            ViewData["ResultSortParm"] = sortOrder == "Result" ? "result_desc" : "Result";
+            ViewData["AmountSortParm"] = sortOrder == "Amount" ? "amount_desc" : "Amount";
+            var transactions = from b in _context.StocksTransactions.Include(b => b.Stocks).Include(b => b.Trader)
+                               select b;
+            switch (sortOrder)
+            {
+                case "stock_desc":
+                    transactions = transactions.OrderByDescending(b => b.Stocks);
+                    break;
+                case "Amount":
+                    transactions = transactions.OrderBy(b => b.StockAmount);
+                    break;
+                case "amount_desc":
+                    transactions = transactions.OrderByDescending(b => b.StockAmount);
+                    break;
+                case "Result":
+                    transactions = transactions.OrderBy(b => b.StockResult);
+                    break;
+                case "result_desc":
+                    transactions = transactions.OrderByDescending(b => b.StockResult);
+                    break;
+                case "Trader":
+                    transactions = transactions.OrderBy(b => b.Trader);
+                    break;
+                case "trader_desc":
+                    transactions = transactions.OrderByDescending(b => b.Trader);
+                    break;
+                case "Price":
+                    transactions = transactions.OrderBy(b => b.Stocks.Price);
+                    break;
+                case "price_desc":
+                    transactions = transactions.OrderByDescending(b => b.Stocks.Price);
+                    break;
+                default:
+                    transactions = transactions.OrderBy(b => b.Stocks);
+                    break;
+            }
+            return View(await transactions.AsNoTracking().ToListAsync());
         }
     }
 }

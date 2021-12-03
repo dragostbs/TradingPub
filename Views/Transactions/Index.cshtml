@@ -4,28 +4,27 @@
     ViewData["Title"] = "Index";
 }
 
-
 <div class="d-flex justify-content-between">
     <h2>Forex Transaction</h2>
 </div>
 
 <table class="table table-borderless shadow rounded" style="width:100%">
-    <thead class="text-light" style="background: #1E2830">
+    <thead style="background: #1E2830">
         <tr>
-            <td style="font-size: 21px; font-weight: bold" align="center">
-                @Html.DisplayNameFor(model => model.Trader)
+            <td style="font-size: 21px; font-weight: bold" align="center">         
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["TraderSortParm"]">@Html.DisplayNameFor(model => model.Trader)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.Quotation)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Quotation)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.Quotation.Price)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]">@Html.DisplayNameFor(model => model.Quotation.Price)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.ForexResult)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["ResultSortParm"]">@Html.DisplayNameFor(model => model.ForexResult)</a>
             </td>
             <td style="font-size: 21px; font-weight:bold" align="center">
-                @Html.DisplayNameFor(model => model.ForexAmount)
+                <a class="text-light" asp-action="Index" asp-route-sortOrder="@ViewData["AmountSortParm"]">@Html.DisplayNameFor(model => model.ForexAmount)</a>
             </td>
         </tr>
     </thead>
