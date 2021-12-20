@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using TradingPub.Data;
 using Microsoft.EntityFrameworkCore;
 using TradingPub.Hubs;
+using Microsoft.AspNetCore.Identity;
 
 namespace TradingPub
 {
@@ -29,6 +30,15 @@ namespace TradingPub
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSignalR();
+            services.Configure<IdentityOptions>(options => {
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 -._@+"; 
+                options.User.RequireUniqueEmail = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

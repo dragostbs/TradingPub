@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using TradingPub.Hubs;
 
 namespace TradingPub.Hubs
 {
+    [Authorize]
     public class ChatHub : Hub
     {
         public async Task SendMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message + " " + "[" + DateTime.Now.ToShortTimeString() + "]");
+            await Clients.All.SendAsync("ReceiveMessage", Context.User.Identity.Name, message + " " + "[" + DateTime.Now.ToShortTimeString() + "]");
         }
     }
 }

@@ -9,7 +9,7 @@
     <form asp-action="Index" method="get">
         <div class="form-actions no-color">
             <div class="form-inline">
-                <div class="px-2"><input class="form-control" type="text" name="SearchString" placeholder="Find by Trader" value="@ViewData["CurrentFilter"]" /></div>
+                <div class="px-2"><input class="form-control" type="text" name="SearchString" placeholder="Filter by Trader" value="@ViewData["CurrentFilter"]" /></div>
                 <input type="submit" value="Search" class="btn btn-primary" />
                 <div class="px-1"><a class="btn btn-danger" asp-action="Index">Back</a></div>
             </div>
