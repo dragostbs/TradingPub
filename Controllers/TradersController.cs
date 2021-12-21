@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,7 @@ namespace TradingPub.Controllers
         }
 
         // GET: Traders/Create
+        [Authorize(Policy = "OnlyManagers")]
         public IActionResult Create()
         {
             Trader trd = new Trader();
@@ -67,6 +69,7 @@ namespace TradingPub.Controllers
         }
 
         // GET: Traders/Edit/5
+        [Authorize(Policy = "OnlyManagers")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -118,6 +121,7 @@ namespace TradingPub.Controllers
         }
 
         // GET: Traders/Delete/5
+        [Authorize(Policy = "OnlyManagers")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

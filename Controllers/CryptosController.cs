@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,7 @@ namespace TradingPub.Controllers
 
         // GET: Cryptos/Create
         [HttpGet]
+        [Authorize(Policy = "OnlyManagers")]
         public IActionResult Create()
         {
             Crypto pto = new Crypto();
@@ -68,6 +70,7 @@ namespace TradingPub.Controllers
         }
 
         // GET: Cryptos/Edit/5
+        [Authorize(Policy = "OnlyManagers")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -119,6 +122,7 @@ namespace TradingPub.Controllers
         }
 
         // GET: Cryptos/Delete/5
+        [Authorize(Policy = "OnlyManagers")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

@@ -12,6 +12,7 @@ using TradingPub.Data;
 using Microsoft.EntityFrameworkCore;
 using TradingPub.Hubs;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace TradingPub
 {
@@ -30,6 +31,7 @@ namespace TradingPub
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSignalR();
+            services.AddRazorPages();
             services.Configure<IdentityOptions>(options => {
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
@@ -38,6 +40,14 @@ namespace TradingPub
                 options.SignIn.RequireConfirmedPhoneNumber = false;
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 -._@+"; 
                 options.User.RequireUniqueEmail = false;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.AllowedForNewUsers = true;
+            });
+            services.AddAuthorization(opts => {
+                opts.AddPolicy("OnlyManagers", policy => {
+                    policy.RequireClaim("Department", "Managers");                  
+                });
             });
         }
 
