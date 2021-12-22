@@ -46,8 +46,13 @@ namespace TradingPub
             });
             services.AddAuthorization(opts => {
                 opts.AddPolicy("OnlyManagers", policy => {
+                    policy.RequireRole("Manager");
                     policy.RequireClaim("Department", "Managers");                  
                 });
+            });
+            services.ConfigureApplicationCookie(opts =>
+            {
+                opts.AccessDeniedPath = "/Identity/Account/AccessDenied";
             });
         }
 

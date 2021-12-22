@@ -27,6 +27,7 @@ namespace TradingPub.Controllers
         }
 
         // GET: Traders/Details/5
+        [Authorize(Roles = "Trader")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

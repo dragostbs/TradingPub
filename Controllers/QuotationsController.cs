@@ -25,7 +25,7 @@ namespace TradingPub.Controllers
         {
             return View(await _context.Quotations.ToListAsync());
         }
-
+        [Authorize(Roles = "Trader")]
         // GET: Quotations/Details/5
         public async Task<IActionResult> Details(int? id)
         {

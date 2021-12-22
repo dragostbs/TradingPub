@@ -1,0 +1,67 @@
+﻿@model RoleEdit
+
+<div class="text-center">
+    <h4>Update Role</h4>
+</div>
+
+<div class="container">
+    <div class="table table-borderless shadow rounded text-center p-1 text-dark" style="background: #D4D8D7">
+        <style type="text/css">
+            .table {
+                margin: 0 auto;
+                width: 40%;
+            }
+        </style>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form method="post"  class="form-group p-0">
+            <div>
+            <input type="hidden" name="roleName" value="@Model.Role.Name" />
+            <input type="hidden" name="roleId" value="@Model.Role.Id" />
+            <h1 style="font-size: 17px" class="form-group m-3">Add To @Model.Role.Name</h1>
+            </div>
+            <table class="table table-bordered table-sm form-group p-2">
+                @if (Model.NonMembers.Count() == 0)
+                {
+                    <tr><td colspan="2">All Users Are Members</td></tr>
+                }
+                else
+                {
+                    @foreach (var user in Model.NonMembers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="AddIds"
+                                       value="@user.Id">
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+           <h1 style="font-size: 17px" class="form-group m-3">Remove From @Model.Role.Name</h1>
+            <table class="table table-bordered table-sm">
+                @if (Model.Members.Count() == 0)
+                {
+                    <tr><td colspan="2">No Users Are Members</td></tr>
+                }
+                else
+                {
+                    @foreach (var user in Model.Members)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="DeleteIds"
+                                       value="@user.Id">
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+            <div class="form-group p-3">
+                <button type="submit" class="btn btn-primary">Save</button> |
+                <a asp-action="Index" class="btn btn-danger">Back</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -23,9 +23,12 @@
         <tr align="center" class="align-middle">
             <td>@role.Id</td>
             <td>@role.Name</td>
-            <td align="center">
-                <a i class="btn btn-success btn-sm bi bi bi-arrow-up-square text-light" asp-action="Update" asp-route-id="@role.Id"></a> |
-                <a i class="btn btn-danger btn-sm bi bi-x-lg text-light" asp-action="Delete" asp-route-id="@role.Id" method="post"></a>
+            <td align="center">               
+                <form asp-action="Delete" asp-route-id="@role.Id" method="post">
+                    <a i class="btn btn-success btn-sm bi bi bi-arrow-up-square text-light" asp-action="Update" asp-route-id="@role.Id"></a> |
+                    <button type="submit" i class="btn btn-danger btn-sm bi bi-x-lg text-light">
+                    </button>
+                </form>
             </td>
         </tr>
         }

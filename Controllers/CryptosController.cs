@@ -25,7 +25,7 @@ namespace TradingPub.Controllers
         {
             return View(await _context.Cryptos.ToListAsync());
         }
-
+        [Authorize(Roles = "Trader")]
         // GET: Cryptos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
