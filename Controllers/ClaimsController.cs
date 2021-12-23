@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace TradingPub.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "OnlyManagers")]
     public class ClaimsController : Controller
     {
         private UserManager<IdentityUser> userManager;

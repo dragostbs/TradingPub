@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TradingPub.Models;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Dragos_Boscan_L2.Controllers
 {
+    [Authorize(Policy = "OnlyManagers")]
     public class RolesController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
