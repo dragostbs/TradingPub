@@ -2,55 +2,19 @@ name: .NET
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "master" ]
-    
-env:
-  app-name: "<TradingPub>"
-  rg-name: "<NoWy>"
+    branches: [ main ]
 
 jobs:
   build:
 
-deploy_staging:
-    needs: build
     runs-on: ubuntu-latest
 
-    environment:
-      name: PRE-PROD
-      url: ${{ steps.deploywebapp.outputs.webapp-url }}
-
     steps:
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2.0.8
-      with:
-        name: website
-        path: website
-
-    - name: Login via Azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Deploy web app
-      id: deploywebapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: ${{ env.app-name }}
-        slot-name: staging
-        package: website
-
-    - name: az cli logout
-      run: az logout
-      runs-on: ubuntu-latest
-
-if-no-files-found: error
-
-  steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
